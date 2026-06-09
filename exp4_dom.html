@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+body{
+    font-family:Arial;
+    text-align:center;
+    background:#eef;
+    margin-top:80px;
+}
+
+.box{
+    background:white;
+    width:400px;
+    margin:auto;
+    padding:30px;
+    border-radius:10px;
+}
+
+button{
+    background:#0077b6;
+    color:white;
+    border:none;
+    padding:10px;
+    margin:5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1 id="text">Welcome Student</h1>
+
+<img id="image"
+     src="https://i.pinimg.com/originals/6e/c3/3d/6ec33d23645e624eafa7c509c07de82e.jpg" width="200">
+
+<br><br>
+
+<button onclick="changeText()">
+Change Text
+</button>
+
+<button onclick="changeColor()">
+Change Color
+</button>
+
+<button onclick="hideImage()">
+Hide Image
+</button>
+
+</div>
+
+<script>
+
+function changeText(){
+
+document.getElementById("text").innerHTML=
+"Advanced Web Technology";
+
+}
+
+function changeColor(){
+
+document.body.style.background="lightyellow";
+
+}
+
+function hideImage(){
+
+document.getElementById("image").style.display="none";
+
+}
+
+</script>
+
+</body>
+</html>

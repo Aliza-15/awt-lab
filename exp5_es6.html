@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>ES6 Features</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#fff3e0;
+padding:30px;
+}
+
+.box{
+width:650px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:10px;
+}
+
+h2{
+text-align:center;
+color:#e65100;
+}
+
+div{
+background:#fbe9e7;
+padding:15px;
+margin-top:15px;
+border-radius:10px;
+}
+
+button{
+width:100%;
+padding:10px;
+background:#e65100;
+color:white;
+border:none;
+font-size:18px;
+margin-top:10px;
+}
+
+p{
+background:white;
+padding:10px;
+font-size:18px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>ES6 Features</h2>
+
+<div>
+<h3>Arrow Function</h3>
+<button onclick="arrow()">Run</button>
+<p id="a"></p>
+</div>
+
+<div>
+<h3>Promise</h3>
+<button onclick="promise()">Run</button>
+<p id="b"></p>
+</div>
+
+<div>
+<h3>Module</h3>
+<button onclick="module1()">Run</button>
+<p id="c"></p>
+</div>
+
+<div>
+<h3>Spread Operator</h3>
+<button onclick="spread()">Run</button>
+<p id="d"></p>
+</div>
+
+</div>
+
+<script type="module">
+
+export let subject="Advanced Web Technology";
+
+const add=(x,y)=>x+y;
+
+window.arrow=()=>a.innerHTML=
+"Addition = "+add(10,20);
+
+window.promise=()=>{
+
+b.innerHTML="Loading...";
+
+new Promise(r=>setTimeout(()=>r("Promise Executed"),1000))
+
+.then(data=>b.innerHTML=data);
+
+}
+
+window.module1=()=>c.innerHTML=
+"Module Variable: "+subject;
+
+window.spread=()=>{
+
+let x=[1,2],y=[3,4];
+
+d.innerHTML="Merged Array: "+[...x,...y];
+
+}
+
+</script>
+
+</body>
+</html>

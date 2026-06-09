@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+body{
+    margin-top: 250px;
+    font-family:Arial;
+    background:#eef;
+}
+
+form{
+    width:350px;
+    margin:auto;
+    background:white;
+    padding: 20px;
+    padding-left:20px;
+    padding-right:40px;
+    border-radius:10px;
+}
+
+input{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+}
+
+button{
+    background:#0077b6;
+    color:white;
+    padding:10px;
+    border:none;
+    margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2 align="center">
+Student Registration
+</h2>
+
+<form onsubmit="return validate()">
+
+Name:
+<input type="text" id="name"><br><br>
+
+Email:
+<input type="text" id="email"><br><br>
+
+Phone:
+<input type="text" id="phone"><br><br>
+
+
+<button>Submit</button>
+
+</form>
+
+<script>
+
+function validate(){
+
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let phone=document.getElementById("phone").value;
+
+if(name==""){
+    alert("Enter Name");
+    return false;
+}
+
+if(email==""){
+    alert("Enter Email");
+    return false;
+}
+
+if(phone.length!=10){
+    alert("Phone number must be 10 digits");
+    return false;
+}
+
+alert("Form Submitted Successfully");
+
+return true;
+
+}
+
+</script>
+
+</body>
+</html>

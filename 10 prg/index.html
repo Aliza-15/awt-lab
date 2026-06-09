@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>REST API Demo</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#fff8e1;
+text-align:center;
+padding:50px;
+}
+
+.box{
+background:white;
+width:500px;
+margin:auto;
+padding:25px;
+border-radius:10px;
+border:3px solid #ff9800;
+}
+
+h2{
+color:#e65100;
+}
+
+input,button{
+width:90%;
+padding:10px;
+margin:10px;
+font-size:18px;
+}
+
+button{
+background:#ff9800;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+p{
+font-size:18px;
+font-weight:bold;
+word-wrap:break-word;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>REST API Testing</h2>
+
+<input type="text" id="name" placeholder="Enter Name">
+
+<input type="number" id="id" placeholder="Enter ID to Delete">
+
+<button onclick="getData()">GET</button>
+
+<button onclick="postData()">POST</button>
+
+<button onclick="deleteData()">DELETE</button>
+
+<p id="output"></p>
+
+</div>
+
+<script>
+
+function getData(){
+
+fetch("http://localhost:3000/students")
+
+.then(res=>res.json())
+
+.then(data=>{
+
+document.getElementById("output").innerHTML=
+JSON.stringify(data);
+
+});
+
+}
+
+function postData(){
+
+let name=document.getElementById("name").value;
+
+fetch("http://localhost:3000/students",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({name:name})
+
+})
+
+.then(res=>res.json())
+
+.then(data=>{
+
+document.getElementById("output").innerHTML=
+JSON.stringify(data);
+
+});
+
+}
+
+function deleteData(){
+
+let id=document.getElementById("id").value;
+
+fetch("http://localhost:3000/students/"+id,{
+
+method:"DELETE"
+
+})
+
+.then(res=>res.json())
+
+.then(data=>{
+
+document.getElementById("output").innerHTML=
+JSON.stringify(data);
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

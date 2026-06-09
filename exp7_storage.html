@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Client Side Storage</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#e3f2fd;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.box{
+width:600px;
+background:white;
+padding:40px;
+border-radius:15px;
+border:4px solid #42a5f5;
+}
+
+h2{
+text-align:center;
+color:#1565c0;
+font-size:42px;
+}
+
+label{
+font-size:28px;
+font-weight:bold;
+}
+
+input{
+width:100%;
+padding:15px;
+margin-top:15px;
+box-sizing:border-box;
+font-size:24px;
+border:2px solid #90caf9;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+color:white;
+font-size:22px;
+border-radius:8px;
+}
+
+.local{background:#43a047;}
+.session{background:#fb8c00;}
+.cookie{background:#8e24aa;}
+.show{background:#1565c0;}
+
+p{
+background:#f1f8e9;
+padding:20px;
+margin-top:25px;
+font-size:24px;
+border-radius:8px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Client Side Storage</h2>
+
+<label>Enter Name:</label>
+
+<input type="text" id="name">
+
+<button class="local" onclick="saveLocal()">
+Save to LocalStorage
+</button>
+
+<button class="session" onclick="saveSession()">
+Save to SessionStorage
+</button>
+
+<button class="cookie" onclick="saveCookie()">
+Save Cookie
+</button>
+
+<button class="show" onclick="showData()">
+Show Data
+</button>
+
+<p id="output">
+Stored data will appear here
+</p>
+
+</div>
+
+<script>
+
+function saveLocal(){
+
+let name=document.getElementById("name").value;
+
+localStorage.setItem("username",name);
+
+alert("Saved in LocalStorage");
+
+}
+
+function saveSession(){
+
+let name=document.getElementById("name").value;
+
+sessionStorage.setItem("username",name);
+
+alert("Saved in SessionStorage");
+
+}
+
+function saveCookie(){
+
+let name=document.getElementById("name").value;
+
+document.cookie="username="+name;
+
+alert("Cookie Saved");
+
+}
+
+function showData(){
+
+let local=localStorage.getItem("username");
+
+let session=sessionStorage.getItem("username");
+
+document.getElementById("output").innerHTML=
+
+"LocalStorage: "+local+
+
+"<br><br>SessionStorage: "+session+
+
+"<br><br>Cookies: "+document.cookie;
+
+}
+
+</script>
+
+</body>
+</html>
